@@ -43,22 +43,25 @@ The project uses the Controller Area Network (CAN) protocol to exchange sensor a
 
 The project consists of three ECUs communicating through the CAN bus.
 
-### ECU 1
+## ECU Functions
 
-ECU 1 is responsible for acquiring and processing the vehicle speed.
+### ECU 1 – Speed and Gear
 
-- Reads speed input using ADC.
+ECU 1 is responsible for acquiring and processing vehicle speed and gear information.
+
+- Reads vehicle speed using ADC.
 - Converts the ADC reading into the corresponding speed value.
-- Transmits the speed information through CAN.
+- Reads the gear position.
+- Transmits speed and gear information through CAN.
 
-### ECU 2
+### ECU 2 – RPM and Indicators
 
-ECU 2 is responsible for acquiring and processing engine RPM and indicator-related information.
+ECU 2 is responsible for acquiring and processing engine RPM and indicator information.
 
-- Reads RPM input using ADC.
+- Reads engine RPM using ADC.
 - Converts the ADC reading into the corresponding RPM value.
-- Processes indicator information.
-- Transmits the required information through CAN.
+- Processes left and right indicator status.
+- Transmits RPM and indicator information through CAN.
 
 ### ECU 3 – Dashboard
 
@@ -66,9 +69,8 @@ ECU 3 acts as the vehicle dashboard.
 
 - Receives vehicle parameters through CAN.
 - Processes the received CAN messages.
-- Displays vehicle parameters on the LCD.
-- Displays information such as speed, RPM and gear position.
-- Handles indicator status.
+- Displays speed, RPM and gear position on the LCD.
+- Displays the corresponding indicator status.
 
 ## CAN Communication
 
